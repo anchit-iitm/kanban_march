@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, session
 from models import *
-from flask_security import Security, SQLAlchemyUserDatastore
-import os
+from flask_security import Security, SQLAlchemyUserDatastore, roles_accepted 
+import os, datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./mydb.sqlite3'
@@ -90,6 +90,46 @@ def login():
             return redirect(url_for('get_data'))
         else:
             return 'user is not present' #redirect(url_for('register'))'''
+
+@app.route('/list/create', methods=["GET", "POST"])
+def create_list():
+     if request.method == "GET":
+           return render_template('clist.html')
+     if request.method == "POST":
+            title = request.form.get('l_name')
+            content = request.form.get('l_desc')
+            c_date = datetime.date.today()
+            try:
+                add_list=list(list_name=title, list_desc=content, list_c_date=c_date, user_id='1')
+                db.session.add(add_list)
+                db.session.commit()
+                return "yes it was added to the db" #redirect(url_for('dash'))
+            except:
+                db.session.rollback()
+                return ("error in creating")
+      
+
+@app.route('/task/<int:list_id>/create', methods=["GET", "POST"])
+def taskfn(list_id):
+      if request.method == "GET":
+            return render_template('ctask.html')
+      if request.method == "POST":
+            title = request.form.get('t_name')
+            content = request.form.get('t_content')
+            deadline = request.form.get('t_deadline')
+            c_date = datetime.date.today()
+
+            try:
+                    add_task=task(list_id=list_id, task_title=title, task_content=content, task_deadline=deadline, task_complete=0, task_c_date=c_date)
+                    db.session.add(add_task)
+                    db.session.commit()
+                    return "yes task was added to the db" #redirect(url_for('dash'))
+            except:
+                    db.session.rollback()
+                    return ("error in creating")
+
+
+
 
 if __name__ == '__main__':
     db.create_all()
