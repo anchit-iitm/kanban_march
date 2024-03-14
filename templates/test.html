@@ -9,8 +9,14 @@
     <h1>this is my html file</h1>
     <p>{{ jinja_var1 }}</p>
     <a href="locsal5000/add_section">link for  sopmething</a>
+    {{ users}}
     {% for user in users %}
     <p>{{ user.email, user.password, user.id }}</p>
     {% endfor %}
+    {% if sopmething %}
+    <p>something is true</p>
+    {% else %}
+    <p>something is false</p>
+    {% endif %}
 </body>
 </html>

@@ -1,10 +1,10 @@
 from flask import Flask, request, render_template, redirect, url_for, session
 from models import *
-from flask_security import Security, SQLAlchemyUserDatastore, roles_accepted 
+from flask_security import Security, SQLAlchemyUserDatastore
 import os, datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./mydb.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./kanban.sqlite3'
 # Generate a nice key using secrets.token_urlsafe()
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", 'pf9Wkove4IKEAXvy-cQkeDPhv9Cb3Ag-wyJILbq_dFw')
 # Bcrypt is set as default SECURITY_PASSWORD_HASH, which requires a salt
@@ -63,7 +63,7 @@ def hello_world_2():
 
 @app.route('/get_data_abcd', methods=['GET'])
 def get_data():
-    users_data = User.query.all()
+    users_data = User.query.all() # user_data = User.query.first() # user_data = User.query.filter_by(User.email="abc@abc.com").all()
     print(users_data)
     for user in users_data:
         print(user.email)

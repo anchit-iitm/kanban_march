@@ -21,7 +21,7 @@ class Task(db.Model):
     title = db.Column(db.String(255), nullable=False)
     content = db.Column(db.String(255))
     deadline = db.Column(db.String)
-    complete = db.Column(db.Integer) # bool is also possible
+    complete = db.Column(db.Integer) # contains the list id of the list which it was marked as completed, if it was list.id=1, then the value would be 1
     c_date = db.Column(db.String) # date of creation
     u_date = db.Column(db.String) # date of update if there is any
     d_date = db.Column(db.String) # date of completion / done date

@@ -19,17 +19,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/dashboard">{{p.username}}</a>
+          <a class="nav-link active" aria-current="page" href="/dashboard">{{p.email}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/summary">Summary</a>
         </li>
       </ul>
-      <div class="nav-item"><a href="/logout" class="nav-link" title="Bye {{p.username}}"><button type="button" class="btn-close" aria-label="Close"></button></a></div>  
+      <div class="nav-item"><a href="/logout" class="nav-link" title="Bye {{p.email}}"><button type="button" class="btn-close" aria-label="Close"></button></a></div>  
     </div>
   </div>
 </nav>
-	<h1 align="center">Update List {{list.id}}</h1><br><br>
+	<h1 align="center">Update List {{ list.id }}, {{list.name}}</h1><br><br>
 	<form onsubmit="return confirm('Are you sure you want to submit?');" action='' method="post">
 		<div class="mb-3" align=center vertical-align="middle">
 		<label for="l_name">List Name</label>
