@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Summary</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<style type="text/css">
+		.row {
+  			float: left;
+  			padding: 10px ;
+  			margin: 5px;
+ 			display: block;
+  			background-color: aquamarine;
+  			border-style: groove;
+  			border: 2px solid red;
+  			border-radius: 5px
+			}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-info">
+  <div class="container-fluid">
+    <div class="navbar-brand">Kanban Board</div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard">{{p}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/summary">Summary</a>
+        </li>
+      </ul>
+      <div class="nav-item"><a href="/logout" class="nav-link" title="Bye {{p}}"><button type="button" class="btn-close" aria-label="Close"></button></a></div>  
+    </div>
+  </div>
+</nav><br><br>
+	<h1><strong>List - {{list.name}}</strong></h1>
+	<h5>Created on - {{list.c_date}}</h5>
+	<h5>Last updated on - {{list.u_date}}</h5>
+	<h5>Total task - {{total}}</h5><br>
+	<h2><strong>Task Completed - {{ltask1}}</strong></h2><br><br>
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Task Name</th>
+			<th>Task Description</th>
+			<th>Created on</th>
+			<th>Deadline on</th>
+			<th>Updated on</th>
+			<th>Completed on</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in task1 %}
+		<tr>
+			<td>{{i.title}}</td>
+			<td>{{i.content}}</td>
+			<td>{{i.c_date}}</td>
+			<td>{{i.deadline}}</td>
+			<td>{{i.u_date}}</td>
+			<td>{{i.d_date}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	</table><br><br>
+	<h2><strong>Task pending - {{ltask0}}</strong></h2><br><br>
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Task Name</th>
+			<th>Task Description</th>
+			<th>Created on</th>
+			<th>Deadline on</th>
+			<th>Updated on</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in task0 %}
+		<tr>
+			<td>{{i.title}}</td>
+			<td>{{i.content}}</td>
+			<td>{{i.c_date}}</td>
+			<td>{{i.deadline}}</td>
+			<td>{{i.u_date}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	</table>
+</body>
+</html>
