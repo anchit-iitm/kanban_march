@@ -27,10 +27,10 @@
 		function checkTime(i) {
 		  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
 		  return i;
-		</script>
+	</script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg bg-info">
+<nav class="navbar navbar-expand-lg bg-info">
   <div class="container-fluid">
     <div class="navbar-brand">Kanban Board</div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,35 +46,34 @@
         </li>
       </ul>
       <div class="navbar-brand" id="txt"></div>
-      <div class="nav-item"><a href="/logout" class="nav-link" title="Bye {{p.username}}"><button type="button" class="btn-close" aria-label="Close"></button></a></div>  
+      <div class="nav-brand"><a href="/logout" class="nav-link" title="Bye {{p.username}}"><button type="button" class="btn-close" aria-label="Close"></button></a></div> 
     </div>
   </div>
 </nav>
-	<div class="mb-3" align="middle" style="vertical-align:middle; font-size:vw; ">
-	<form method="post" onsubmit="return confirm('Are you sure you want to submit?');";>
-		
-		<label for="lists">List</label>
-		<select name="lists"  required>
-			{% for n in get_list %}
-				{% if id == n.id %}
-					<option value='{{n["id"]}}' selected>{{n["name"]}}</option>
-				{% else %}
-					<option value='{{n["id"]}}'>{{n["name"]}}</option>
-				{% endif %}
-			{% endfor %}
-		</select><br><br>
-		
-		<label for="title">Title</label>
-		<input type="text" name="title" value="{{task1.title}}" required><br><br>
-		
-		<label for="content">Content</label>
-		<input type="text" name="content" value="{{task1.content}}" required><br><br>
-		
-		<label for="deadline">Deadline</label>
-		<input type="date" name="deadline" value="{{task1.deadline}}" required><br><br>
-		
-  		<input type="submit" value="Submit">
-  	</form>
-	</div>
+			<div class="position-absolute top-50 start-50 translate-middle">
+			<div class="mb-3" align="center" style="vertical-align:'middle'">
+			<form method="post" onsubmit="return confirm('Are you sure you want to submit?');">
+				
+				<label for="lists">List</label>
+				<input type="text" name="lists" value="{{get_list.name}}" disabled><br><br>
+				
+				<label for="title">Title</label>
+				<input type="text" name="title" required><br><br>
+				
+				<label for="content">Content</label>
+				<input type="text" name="content" required><br><br>
+				
+				<label for="deadline">Deadline</label>
+				<input type="date" name="deadline" required><br><br>
+				
+				<! -- <label for="check"><!--Mark as complete</label>
+		  		<input type="checkbox" name="check" ><br><br> 
+		  		-->
+		  		
+		  		<input type="submit" value="Submit">
+
+			</form>
+			</div>
+			</div>
 </body>
-</html>	
+</html>

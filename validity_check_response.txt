@@ -1,0 +1,33 @@
+Timestamp: Fri Mar 15 2024 12:08:22 GMT+0530 (India Standard Time)
+Uploaded File Type: OK
+Extraction status: OK
+Submission Format Status: OK
+Python Files existence Status: OK
+Overall Validation: Passed
+
+Files to be considered (excluding package files) are given below:
+    21f1000692/kanban/
+    21f1000692/kanban/__pycache__/
+    21f1000692/kanban/__pycache__/models.cpython-310.pyc
+    21f1000692/kanban/instance/
+    21f1000692/kanban/instance/kanban.sqlite3
+    21f1000692/kanban/instance/mydb.sqlite3
+    21f1000692/kanban/kanban_app.py
+    21f1000692/kanban/models.py
+    21f1000692/kanban/requirements.txt
+    21f1000692/kanban/templates/
+    21f1000692/kanban/templates/cdash.html
+    21f1000692/kanban/templates/clist.html
+    21f1000692/kanban/templates/dash.html
+    21f1000692/kanban/templates/delete.html
+    21f1000692/kanban/templates/listsummary.html
+    21f1000692/kanban/templates/login.html
+    21f1000692/kanban/templates/register.html
+    21f1000692/kanban/templates/summary.html
+    21f1000692/kanban/templates/task.html
+    21f1000692/kanban/templates/ulist.html
+    21f1000692/kanban/templates/utask.html
+    21f1000692/report.pdf
+
+Note: If the overall validation status is not being shown as passed,
+the submission is not valid.
